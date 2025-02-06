@@ -1,0 +1,4 @@
+{
+    "github.copilot.chat.fixTestFailure.enabled": true,
+    "github.copilot.editor.enableAutoCompletions": false
+}
