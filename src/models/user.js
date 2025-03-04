@@ -42,7 +42,7 @@ const userSchema = mongoose.Schema(
     },
     photoUrl: {
       type: String,
-      default: "",
+      default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSRR0yeUuMzNspM8bYIwiYQ19AWe2FcIcvLw&s",
       validator(value) {
         if (!validator.isURL(value)) {
           throw new Error("URL is not valid");
@@ -51,13 +51,13 @@ const userSchema = mongoose.Schema(
     },
     about: {
       type: String,
-      default: "i am a user",
+      // default: "i am a user",
     },
     skills: {
       type: [String],
     },
   },
-  { timstamps: true }
+  { timestamps: true }
 );
 userSchema.methods.getJWT = async function () {
   const user = this;

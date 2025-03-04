@@ -6,7 +6,9 @@ app.use(express.json());
 const userAuth = async (req, res, next) => {
   try {
     const { token } = req.cookies;
-    if (!token) throw new Error("Invalid token");
+    if (!token) {
+      res.status(401).send("please login")
+    };
     const decodedMsg = await jwt.verify(token, "randomtoken");
     const { _id } = decodedMsg;
     const user = await User.findById(_id);

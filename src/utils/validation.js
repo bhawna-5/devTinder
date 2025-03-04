@@ -12,7 +12,7 @@ const validateSignupData = (req) => {
 };
 const validateEditProfileData = (req) => {
   const Allowed_updates = [
-    "firsName",
+    "firstName",
     "lastName",
     "photoUrl",
     "gender",
@@ -26,4 +26,11 @@ const validateEditProfileData = (req) => {
   );
   return isUpdateAllowed;
 };
-module.exports = { validateSignupData ,validateEditProfileData};
+const validateEditPassword = (req) => {
+  const Allowed_updates = ["existingPassword", "newPassword"];
+  const isUpdateAllowed = Object.keys(req.body).every((k) =>
+    Allowed_updates.includes(k)
+  );
+  return isUpdateAllowed;
+};
+module.exports = { validateSignupData, validateEditProfileData,validateEditPassword };
